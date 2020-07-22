@@ -22,6 +22,21 @@ export default function App() {
     setFormValue({...formValue, [name]: value})
   }
 
+ const createUsers = () => {
+   axios.get('https://reqres.in/api/users')
+   .then(res => setUsers(res.data))
+   .catch(()=> console.log("axios.get err"))
+ }
+
+const postUsers = newUser => {
+  axios.post('https://reqres.in/api/users', newUser)
+  .then(res=>{
+    setFormValue(formInitialValue)
+    setUsers([...users, res.data])
+  })
+  .catch(()=> console.log('axios.post err'))
+}
+
   const submit = () => {
     const newUser ={
       username: formValue.username.trim(),
@@ -29,12 +44,13 @@ export default function App() {
       password: formValue.password.trim(),
       terms: formValue.terms
     }
-
     //send this information to the function that post to axios
-    console.log(newUser)
+    postUsers(newUser)
   }
 
-  
+  useEffect(()=> {
+    createUsers()
+  },[]) // might need to be [users]
 
   return (
     <div className="App">

@@ -20,8 +20,6 @@ export default function Form ({values, update, submit}) {
            submit()
        }
 
-
-
     return (
         <form onSubmit={onSubmit}>
         <div>
