@@ -3,9 +3,27 @@ import * as yup from "yup"
 
 
 
-export default function Form () {
+export default function Form (props) {
+
+    const onChange = (e) => {
+        let theValue = e.target.value
+        let theName = e.target.name
+        let theType = e.target.type
+        let theChecked = e.target.checked
+        
+        e.target.type === "checkbox" ? console.log(theChecked) : console.log( theName, theType, theValue, )
+    // set state the value
+    }
+
+       const onSubmit = (e) => {
+           e.preventDefault()
+           // setState
+       }
+
+
+
     return (
-        <form>
+        <form onSubmit={onSubmit}>
         <div>
                 <label htmlFor="username"> 
                     Username:
@@ -15,7 +33,7 @@ export default function Form () {
                         id="username"
                         placeholder="Enter Your Username"
                         // value ={?}
-                        // onChange={callBack}
+                        onChange={onChange}
                     />
                 </label>
             </div>
@@ -29,7 +47,7 @@ export default function Form () {
                     placeholder="Enter Your Email"
                     id="email"
                     // value ={?}
-                    // onChange={callback}
+                    onChange={onChange}
                  />
             </label>
             </div>
@@ -42,7 +60,7 @@ export default function Form () {
                     placeholder="Enter Your Password"
                     id="password"
                     // value={?}
-                    // onChange={?}
+                    onChange={onChange}
                  />
             </label>
             </div>
@@ -55,7 +73,7 @@ export default function Form () {
                         name="terms"
                         id="checkbox"
                         // checked= true or falss
-                        // onChange={?}
+                        onChange={onChange}
                      />
                 </label>
             </div>
