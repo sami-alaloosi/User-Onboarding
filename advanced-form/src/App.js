@@ -11,14 +11,30 @@ import './App.css';
   terms: ""
 }
 
+const initialUsers = []
 
 
 export default function App() {
   const [formValue, setFormValue] = useState(formInitialValue)
+  const [users, setUsers]= useState(initialUsers)
 
   const fromValueChanger = (name, value) => {
     setFormValue({...formValue, [name]: value})
   }
+
+  const submit = () => {
+    const newUser ={
+      username: formValue.username.trim(),
+      email: formValue.email.trim(),
+      password: formValue.password.trim(),
+      terms: formValue.terms
+    }
+
+    //send this information to the function that post to axios
+    console.log(newUser)
+  }
+
+  
 
   return (
     <div className="App">
@@ -27,6 +43,7 @@ export default function App() {
       <Form
         values={formValue}
         update={fromValueChanger}
+        submit={submit}
        />
     </div>
   );

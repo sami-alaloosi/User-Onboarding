@@ -3,8 +3,8 @@ import * as yup from "yup"
 
 
 
-export default function Form ({values, update}) {
-    console.log(values)
+export default function Form ({values, update, submit}) {
+    
 
     const onChange = (e) => {
         let value = e.target.value
@@ -13,14 +13,11 @@ export default function Form ({values, update}) {
         let valueChecked = e.target.checked
         
         theType === "checkbox" ? update(name, valueChecked) : update(name, value)
-
-        
-    // set state the value
     }
 
        const onSubmit = (e) => {
            e.preventDefault()
-           // setState
+           submit()
        }
 
 
