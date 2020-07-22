@@ -3,15 +3,18 @@ import * as yup from "yup"
 
 
 
-export default function Form (props) {
+export default function Form ({values, update}) {
+    console.log(values)
 
     const onChange = (e) => {
-        let theValue = e.target.value
-        let theName = e.target.name
+        let value = e.target.value
+        let name = e.target.name
         let theType = e.target.type
-        let theChecked = e.target.checked
+        let valueChecked = e.target.checked
         
-        e.target.type === "checkbox" ? console.log(theChecked) : console.log( theName, theType, theValue, )
+        theType === "checkbox" ? update(name, valueChecked) : update(name, value)
+
+        
     // set state the value
     }
 
@@ -32,7 +35,7 @@ export default function Form (props) {
                         name="username"
                         id="username"
                         placeholder="Enter Your Username"
-                        // value ={?}
+                        value ={values.username}
                         onChange={onChange}
                     />
                 </label>
@@ -46,7 +49,7 @@ export default function Form (props) {
                     name="email"
                     placeholder="Enter Your Email"
                     id="email"
-                    // value ={?}
+                    value ={values.email}
                     onChange={onChange}
                  />
             </label>
@@ -59,7 +62,7 @@ export default function Form (props) {
                     name="password"
                     placeholder="Enter Your Password"
                     id="password"
-                    // value={?}
+                    value={values.password}
                     onChange={onChange}
                  />
             </label>
@@ -72,7 +75,7 @@ export default function Form (props) {
                         type="checkbox"
                         name="terms"
                         id="checkbox"
-                        // checked= true or falss
+                        checked= {values.terms}
                         onChange={onChange}
                      />
                 </label>
