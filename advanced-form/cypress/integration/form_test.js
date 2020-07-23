@@ -76,5 +76,45 @@ describe('Can submit the form data', () =>{
         cy.contains('sami alaloosi')
         cy.contains('kingxsam@gmail.com')
     })
-
 } )
+
+describe('checking for every form validation', () =>{
+
+    it("can navigate to the site", ()=>{
+        cy.visit('http://localhost:3000/?username=rewrewrwe&email=kingxsam%40gmail.com&password=ewewewe&terms=on')
+    })
+
+    it('typing in the Name input', ()=>{
+        cy.get('input[name="username"]').type('s')
+    })
+
+    it('checking the username validation', ()=> {
+        cy.contains('Username must be at least 5 characters') 
+    })
+
+    it("typing in the Email input ", ()=>{
+        cy.get('input[name="email"]').type("kingxsamgmail.com")
+    })
+
+    it('checking the email validation', ()=> {
+        cy.contains('Email must be valid')
+    })
+
+    it("typing in the password input", () =>{
+        cy.get('input[id="password"]').type('123456')
+    })
+
+    it('checking the password validation', ()=> {
+        cy.contains('Password must be at least 8 characters')
+    })
+
+    it('can check the ckeckbox', ()=>{
+        cy.get('[type="checkbox"]').check()
+        cy.get('[type="checkbox"]').uncheck() 
+    })
+
+    it('checking the ckeckbox validation', ()=> {
+        cy.contains('You must accept Terms and Conditions')
+    })
+
+})
