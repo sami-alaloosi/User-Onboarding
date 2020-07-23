@@ -40,8 +40,41 @@ describe("Testing the checkbox", () =>{
         cy.visit('http://localhost:3000/?username=rewrewrwe&email=kingxsam%40gmail.com&password=ewewewe&terms=on')
     })
 
-    it('can check the ckeckbocx', ()=>{
+    it('can check and uncheck the ckeckbocx', ()=>{
         cy.get('[type="checkbox"]').check() 
         cy.get('[type="checkbox"]').uncheck() 
     })
 })
+
+describe('Can submit the form data', () =>{
+
+    it("can navigate to the site", ()=>{
+        cy.visit('http://localhost:3000/?username=rewrewrwe&email=kingxsam%40gmail.com&password=ewewewe&terms=on')
+    })
+
+    it('typing in the Name input', ()=>{
+        cy.get('input[name="username"]').type('sami alaloosi')
+    })
+
+    it("typing in the Email input ", ()=>{
+        cy.get('input[name="email"]').type("kingxsam@gmail.com")
+    })
+
+    it("typing in the password input", () =>{
+        cy.get('input[id="password"]').type('12345678')
+    })
+
+    it('can check the ckeckbocx', ()=>{
+        cy.get('[type="checkbox"]').check() 
+    })
+
+    it('clicking the submit butten', ()=> {
+        cy.get('button').click()
+    })
+
+    it('checking if the form has been submitted', ()=>{
+        cy.contains('sami alaloosi')
+        cy.contains('kingxsam@gmail.com')
+    })
+
+} )
