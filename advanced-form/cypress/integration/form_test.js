@@ -34,3 +34,14 @@ describe("Get the password input and type a password in it", () =>{
         .should('have.value', '12345678' )
     })
 })
+
+describe("Testing the checkbox", () =>{
+    it("can navigate to the site", ()=>{
+        cy.visit('http://localhost:3000/?username=rewrewrwe&email=kingxsam%40gmail.com&password=ewewewe&terms=on')
+    })
+
+    it('can check the ckeckbocx', ()=>{
+        cy.get('[type="checkbox"]').check() 
+        cy.get('[type="checkbox"]').uncheck() 
+    })
+})
