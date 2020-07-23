@@ -95,7 +95,7 @@ const postUsers = newUser => {
 
   return (
     <div className="App">
-      
+      <div className="card">
       <h1>sami's app</h1>
       <Form
         values={formValue}
@@ -106,6 +106,8 @@ const postUsers = newUser => {
         inputChange={inputChange}
         
        />
+
+</div>
       {
         users.map(user => <UserCard data={user}  key={user.id} /> )
       }

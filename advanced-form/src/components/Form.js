@@ -26,7 +26,8 @@ export default function Form ({values, update, submit, disabled, errors, inputCh
         <form onSubmit={onSubmit}>
         <div>
                 <label htmlFor="username"> 
-                    Username:
+                <div>Username</div>
+                     
                     <input
                         type="text"
                         name="username"
@@ -40,7 +41,8 @@ export default function Form ({values, update, submit, disabled, errors, inputCh
 
             <div>
             <label htmlFor="email" >
-                Email:
+            <div> Email</div>
+                
                 <input
                     type="email"
                     name="email"
@@ -53,7 +55,8 @@ export default function Form ({values, update, submit, disabled, errors, inputCh
             </div>
             <div>
             <label htmlFor="password" >
-                Password:
+            <div> Password</div>
+                 
                 <input
                     type="password"
                     name="password"
@@ -67,7 +70,8 @@ export default function Form ({values, update, submit, disabled, errors, inputCh
 
             <div>
                 <label htmlFor="checkbox">
-                Do you agree to the terms and conditions?
+                <span> Do you agree to the terms and conditions?</span>
+                
                     <input
                         type="checkbox"
                         name="terms"
@@ -82,8 +86,8 @@ export default function Form ({values, update, submit, disabled, errors, inputCh
             <div className='errors'>
           <div>{errors.username}</div>
           <div>{errors.email}</div>
-          <div>{errors.role}</div>
-          <div>{errors.civil}</div>
+          <div>{errors.password}</div>
+          <div>{errors.terms}</div>
         </div>
             
         </form>
