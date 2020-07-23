@@ -1,9 +1,9 @@
 import React from "react"
-import * as yup from "yup"
 
 
 
-export default function Form ({values, update, submit}) {
+
+export default function Form ({values, update, submit, disabled, errors, inputChange}) {
     
 
     const onChange = (e) => {
@@ -13,6 +13,8 @@ export default function Form ({values, update, submit}) {
         let valueChecked = e.target.checked
         
         theType === "checkbox" ? update(name, valueChecked) : update(name, value)
+        theType === "checkbox" ? inputChange(name, valueChecked) : inputChange(name, value)
+        
     }
 
        const onSubmit = (e) => {
@@ -75,7 +77,15 @@ export default function Form ({values, update, submit}) {
                      />
                 </label>
             </div>
-            <button>Submit</button>
+            <button disabled={disabled}>Submit</button>
+
+            <div className='errors'>
+          <div>{errors.username}</div>
+          <div>{errors.email}</div>
+          <div>{errors.role}</div>
+          <div>{errors.civil}</div>
+        </div>
+            
         </form>
     )
 }
