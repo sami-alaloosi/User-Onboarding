@@ -116,5 +116,17 @@ describe('checking for every form validation', () =>{
     it('checking the ckeckbox validation', ()=> {
         cy.contains('You must accept Terms and Conditions')
     })
-
 })
+
+
+// stretch 
+
+describe('testing the submit button', ()=> {
+    it("can navigate to the site", ()=>{
+        cy.visit('http://localhost:3000/?username=rewrewrwe&email=kingxsam%40gmail.com&password=ewewewe&terms=on')
+    })
+
+    it('making sure that the submit button is disabled when you have an empty form', ()=>{
+        cy.get('button').should('be.disabled')
+    })
+} )
