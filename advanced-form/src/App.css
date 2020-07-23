@@ -1,0 +1,44 @@
+* {
+  font-size: 1.2rem;
+  padding: .4rem;
+  margin: 0 .6rem;
+}
+
+h1{
+  color: red;
+  font-size: 3rem;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.errors {
+  color: red;
+}
+
+.card{
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px;
+  margin: 2rem;
+}
+
+button {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  margin-top: .5rem;
+}
+
+button:hover {
+  background-color: #555555;
+  color: white;
+}
+
+
