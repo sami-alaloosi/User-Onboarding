@@ -3,6 +3,7 @@ import axios from "axios"
 import * as yup from "yup"
 import Form from "./components/Form"
 import './App.css';
+import UserCard from './components/UsersCard';
 
  const formInitialValue = {
   username: "",
@@ -22,20 +23,18 @@ export default function App() {
     setFormValue({...formValue, [name]: value})
   }
 
- const createUsers = () => {
-   axios.get('https://reqres.in/api/users')
-   .then(res => setUsers(res.data))
-   .catch(()=> console.log("axios.get err"))
- }
+ 
 
 const postUsers = newUser => {
   axios.post('https://reqres.in/api/users', newUser)
   .then(res=>{
     setFormValue(formInitialValue)
     setUsers([...users, res.data])
+    
   })
   .catch(()=> console.log('axios.post err'))
 }
+
 
   const submit = () => {
     const newUser ={
@@ -48,10 +47,7 @@ const postUsers = newUser => {
     postUsers(newUser)
   }
 
-  useEffect(()=> {
-    createUsers()
-  },[]) // might need to be [users]
-
+ 
   return (
     <div className="App">
       
@@ -61,7 +57,13 @@ const postUsers = newUser => {
         update={fromValueChanger}
         submit={submit}
        />
+      {
+        users.map(user => <UserCard data={user}  key={user.password} /> )
+      }
+
     </div>
+
+
   );
 }
 
